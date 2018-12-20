@@ -72,24 +72,24 @@
     (let [ast (parse! doc)
           doc' (printer/pr-str ast)
           ast' (parse! doc')]
-      (println "\n\n\n\n\n\n")
-      (println "---- ORIGINAL DOC ---------------------------------------------------------\n")
-      (spit "ORIGINAL.graphql" doc)
-      (println doc "\n")
+      (or (= ast ast')
+          (do (println "---- ORIGINAL DOC ---------------------------------------------------------\n")
+              (spit "ORIGINAL.graphql" doc)
+              (println doc "\n")
 
-      (println "---- PRINTED DOC ----------------------------------------------------------\n")
-      (spit "PRINTED.graphql" doc')
-      (println doc')
+              (println "---- PRINTED DOC ----------------------------------------------------------\n")
+              (spit "PRINTED.graphql" doc')
+              (println doc')
 
-      (println "---- ORIGINAL AST ---------------------------------------------------------\n")
-      (spit "ORIGINAL.edn" ast)
-      (pprint ast)
-      (println)
-      (println "---- PRINTED AST ----------------------------------------------------------\n")
-      (pprint ast')
-      (println)
-      (spit "PRINTED.edn" ast')
-      (is (= ast ast')))))
+              (println "---- ORIGINAL AST ---------------------------------------------------------\n")
+              (spit "ORIGINAL.edn" ast)
+              (pprint ast)
+              (println)
+              (println "---- PRINTED AST ----------------------------------------------------------\n")
+              (pprint ast')
+              (println)
+              (spit "PRINTED.edn" ast')
+              (is (= ast ast')))))))
 
 (defn- roundtrip? [parse-fn s]
   (let [ast (parse-fn s)]
@@ -137,7 +137,7 @@
     (roundtrip? parse-schema! schema)))
 
 (def debug-doc
-  "schema @n9l9yiA1 {query: Kfuu, mutation: C5aswjjkt, subscription: Bln0r}\nenum A {Y0OCJ1C43}\nunion Vq14j = Jxp8wb6d6 | W6bcycl | Mw3hm | Efbtmh\ninterface Xr767 @ZSmj4GHR(bT:4e+011, ZJ7etUOQx:-21.28) {J8: [E98fbm]}")
+  "schema {query: K0xg6}\nscalar D8yb35\ninterface Pi5a4e2 @e473td @P1AxC {Km8sIFKK: [I7xki], j44El: R4s}")
 
 (deftest test-debug
   (is (debug debug-doc)))
