@@ -2,6 +2,11 @@ cache:
   directories:
   - $HOME/.m2
 env:
-  - TEST_CHECK_FACTOR=10
+  global:
+    - TEST_CHECK_FACTOR=10
+  matrix:
+    - TASK=test
+    - TASK=test-cljs
+    - TASK=lint
 language: clojure
-script: lein ci
+script: lein $TASK
