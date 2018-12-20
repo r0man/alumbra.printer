@@ -10,6 +10,7 @@
                                   [alumbra/generators "0.2.2"]
                                   [alumbra/parser "0.1.7"]
                                   [alumbra/spec "0.1.11"]
+                                  [com.gfredericks/test.chuck "0.2.9"]
                                   [org.clojure/clojurescript "1.10.439"]
                                   [org.clojure/test.check "0.9.0"]]
                    :plugins [[jonase/eastwood "0.3.3"]
