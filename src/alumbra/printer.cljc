@@ -428,11 +428,15 @@
 
 (defn- emit-interface-definition
   "Emits the Alumbra `interface-definition` to the `printer`."
-  [printer {:keys [alumbra/field-definitions
+  [printer {:keys [alumbra/directives
+                   alumbra/field-definitions
                    alumbra/type-name]
             :as interface-definition}]
   (emit-str printer "interface " type-name)
   (emit-whitespace printer)
+  (when directives
+    (emit-directives printer directives)
+    (emit-whitespace printer))
   (emit-field-definitions printer field-definitions))
 
 (defn- emit-interface-types
