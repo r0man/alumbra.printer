@@ -10,7 +10,8 @@
             [clojure.test.check.clojure-test :refer [defspec]]
             [clojure.test.check.generators :as gen]
             [clojure.test.check.properties :as prop]
-            [clojure.walk :as walk]))
+            [clojure.walk :as walk]
+            [com.gfredericks.test.chuck :as chuck]))
 
 (defn infinity? [x]
   (cond
@@ -123,15 +124,15 @@
    #(not (contains-infinity? (parse-schema! %)))
    (alumbra-gen/raw-schema) 1000))
 
-(defspec t-roundtrip-document 500
+(defspec t-roundtrip-document (chuck/times 20)
   (prop/for-all [document gen-document]
     (roundtrip? parse-document! document)))
 
-(defspec t-roundtrip-raw-document 500
+(defspec t-roundtrip-raw-document (chuck/times 20)
   (prop/for-all [document gen-raw-document]
     (roundtrip? parse-document! document)))
 
-(defspec t-roundtrip-raw-schema 500
+(defspec t-roundtrip-raw-schema (chuck/times 20)
   (prop/for-all [schema gen-raw-schema]
     (roundtrip? parse-schema! schema)))
 

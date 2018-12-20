@@ -1,2 +1,4 @@
+env:
+  - TEST_CHECK_FACTOR=10
 language: clojure
 script: lein ci
