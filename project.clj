@@ -20,9 +20,10 @@
   {"ci" ["do"
          ["clean"]
          ["test"]
-         ["doo" "node" "node" "once"]
+         ["test-cljs"]
          ["lint"]]
-   "lint" ["do"  ["eastwood"]]}
+   "test-cljs" ["doo" "node" "node" "once"]
+   "lint" ["eastwood"]}
   :cljsbuild
   {:builds
    [{:id "node"
