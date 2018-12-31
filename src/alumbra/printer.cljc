@@ -261,7 +261,7 @@
   "Emits the Alumbra `directive` to the `printer`."
   [printer {:keys [alumbra/arguments alumbra/directive-name] :as directive}]
   (emit-str printer "@" directive-name)
-  (when arguments (emit-arguments printer arguments)))
+  (when (seq arguments) (emit-arguments printer arguments)))
 
 (defn- emit-directives
   "Emits the Alumbra `directives` to the `printer`."
@@ -293,7 +293,7 @@
   (emit-whitespace printer)
   (emit-str printer type-name)
   (emit-whitespace printer)
-  (when directives
+  (when (seq directives)
     (emit-directives printer directives)
     (emit-whitespace printer))
   (emit-enum-fields printer enum-fields)
@@ -321,12 +321,12 @@
     (emit-str printer fragment-name))
   (when type-condition
     (emit-type-condition printer type-condition))
-  (when arguments
+  (when (seq arguments)
     (emit-arguments printer arguments))
-  (when directives
+  (when (seq directives)
     (emit-whitespace printer)
     (emit-directives printer directives))
-  (when selection-set
+  (when (seq selection-set)
     (emit-whitespace printer)
     (with-emit-curly-braces printer
       (emit-freshline printer)
