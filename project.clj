@@ -1,4 +1,4 @@
-(defproject r0man/alumbra.printer "0.1.0-SNAPSHOT"
+(defproject r0man/alumbra.printer "0.1.0"
   :description "A pretty printer for the Alumbra AST."
   :url "https://github.com/r0man/alumbra.printer"
   :license {:name "MIT License"
