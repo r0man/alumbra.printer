@@ -12,7 +12,7 @@
   [& [{:keys [indentation] :as opts}]]
   {:beginning-of-line? (atom true)
    :buffer (StringBuffer.)
-   :indentation (or indentation 2)
+   :indentation (or indentation 0)
    :indentation-level 0})
 
 (defn- beginning-of-line?
@@ -579,13 +579,18 @@
   (emit-seq printer emit-fragment fragments))
 
 (defn pr-str
-  "Returns the Alumbra `doc` as a string."
+  "Returns the Alumbra GraphQL `doc` as a string."
   [doc & [opts]]
   (let [printer (printer opts)]
     (emit-document printer doc)
     (str (:buffer printer))))
 
 (defn print
-  "Prints the Alumbra GraphQL `doc`."
+  "Print the Alumbra GraphQL `doc`."
   [doc & [opts]]
   (clojure.core/print (pr-str doc opts)))
+
+(defn pprint
+  "Pretty print the Alumbra GraphQL `doc`."
+  [doc & [opts]]
+  (print doc (merge {:indentation 2} opts)))

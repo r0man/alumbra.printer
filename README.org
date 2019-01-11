@@ -15,28 +15,38 @@
    :CUSTOM_ID: usage
    :END:
 
-   #+BEGIN_SRC clojure
-    (require '[alumbra.parser :as parser])
-    (require '[alumbra.printer :as printer])
+   Parse a GraphQL document.
 
-    (def my-document
-      (parser/parse-document "{ human(id: \"1000\") { name height(unit: FOOT) } }"))
+   #+BEGIN_SRC clojure :exports code :results silent
+     (require '[alumbra.parser :as parser])
+     (require '[alumbra.printer :as printer])
 
-    ;; Without indentation
-
-    (printer/print my-document {:indentation 0})
-    ;;=> query { human(id: "1000") { name height(unit: FOOT) } }
-
-    ;; With an indentation of 2 spaces
-
-    (printer/print my-document {:indentation 2})
-    ;;=> query {
-    ;;=>   human(id: "1000") {
-    ;;=>     name
-    ;;=>     height(unit: FOOT)
-    ;;=>   }
-    ;;=> }
+     (def my-document
+       (parser/parse-document "{ human(id: \"1000\") { name height(unit: FOOT) } }"))
    #+END_SRC
+
+   Print the document.
+
+   #+BEGIN_SRC clojure :exports both :results output
+     (printer/print my-document)
+   #+END_SRC
+
+   #+RESULTS:
+   : query { human(id: "1000") { name  height(unit: FOOT)  }  }
+
+   Pretty print the document.
+
+   #+BEGIN_SRC clojure :exports both :results output
+     (printer/pprint my-document)
+   #+END_SRC
+
+   #+RESULTS:
+   : query {
+   :   human(id: "1000") {
+   :     name
+   :     height(unit: FOOT)
+   :   }
+   : }
 
 ** License
    :PROPERTIES:

@@ -124,6 +124,14 @@
    #(not (contains-infinity? (parse-schema! %)))
    (alumbra-gen/raw-schema) 1000))
 
+(defspec t-print-raw-document (chuck/times 20)
+  (prop/for-all [document gen-raw-document]
+    (string? (with-out-str (printer/print document)))))
+
+(defspec t-pprint-raw-document (chuck/times 20)
+  (prop/for-all [document gen-raw-document]
+    (string? (with-out-str (printer/pprint document)))))
+
 (defspec t-roundtrip-document (chuck/times 20)
   (prop/for-all [document gen-document]
     (roundtrip? parse-document! document)))
