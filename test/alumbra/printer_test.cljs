@@ -1154,7 +1154,7 @@
 ")
 
 (deftest test-pr-str
-  (is (= document-str (printer/pr-str document-ast))))
+  (is (= document-str (with-out-str (printer/pprint document-ast)))))
 
 (deftest test-print
   (is (= (printer/pr-str document-ast)
