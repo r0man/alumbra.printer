@@ -3,7 +3,7 @@
   :CUSTOM_ID: alumbra.printer
   :END:
 
-  [[https://clojars.org/alumbra.printer][https://img.shields.io/clojars/v/alumbra.printer.svg]]
+  [[https://clojars.org/r0man/alumbra.printer][https://img.shields.io/clojars/v/r0man/alumbra.printer.svg]]
   [[https://travis-ci.org/r0man/alumbra.printer][https://travis-ci.org/r0man/alumbra.printer.svg]]
   [[http://jarkeeper.com/r0man/alumbra.printer][http://jarkeeper.com/r0man/alumbra.printer/status.svg]]
   [[http://jarkeeper.com/r0man/alumbra.printer][https://jarkeeper.com/r0man/alumbra.printer/downloads.svg]]
