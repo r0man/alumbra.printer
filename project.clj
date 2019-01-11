@@ -1,15 +1,16 @@
 (defproject r0man/alumbra.printer "0.1.0-SNAPSHOT"
-  :description "Pretty printer for the Alumbra AST."
+  :description "A pretty printer for the Alumbra AST."
   :url "https://github.com/r0man/alumbra.printer"
   :license {:name "MIT License"
             :url "https://opensource.org/licenses/MIT"
             :year 2018
             :key "mit"}
   :dependencies [[org.clojure/clojure "1.10.0"]]
+  :deploy-repositories [["releases" :clojars]]
   :profiles {:dev {:dependencies [[alumbra/analyzer "0.1.17"]
                                   [alumbra/generators "0.2.2"]
                                   [alumbra/parser "0.1.7"]
-                                  [alumbra/spec "0.1.11"]
+                                  [r0man/alumbra.spec "0.1.11"]
                                   [com.gfredericks/test.chuck "0.2.9"]
                                   [org.clojure/clojurescript "1.10.439"]
                                   [org.clojure/test.check "0.9.0"]]
