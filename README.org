@@ -5,8 +5,8 @@
 
   [[https://clojars.org/r0man/alumbra.printer][https://img.shields.io/clojars/v/r0man/alumbra.printer.svg]]
   [[https://travis-ci.org/r0man/alumbra.printer][https://travis-ci.org/r0man/alumbra.printer.svg]]
-  [[http://jarkeeper.com/r0man/alumbra.printer][http://jarkeeper.com/r0man/alumbra.printer/status.svg]]
-  [[http://jarkeeper.com/r0man/alumbra.printer][https://jarkeeper.com/r0man/alumbra.printer/downloads.svg]]
+  [[https://versions.deps.co/r0man/alumbra.printer][https://versions.deps.co/r0man/alumbra.printer/status.svg]]
+  [[https://versions.deps.co/r0man/alumbra.printer][https://jarkeeper.com/r0man/alumbra.printer/downloads.svg]]
 
   A pretty printer for the [[https://github.com/alumbra][Alumbra]] AST.
 
