@@ -150,13 +150,19 @@
 (deftest test-debug
   (is (debug debug-doc)))
 
+(deftest test-main
+  (is (string? (with-out-str (printer/-main "test-resources/document.edn")))))
+
 (comment
 
   ;; Print a raw document
-
-  (->> (gen/generate gen-raw-document)
-       (parse-document!)
-       (printer/print))
+  (spit "document.edn"
+        (with-out-str
+          (->> (gen/generate gen-raw-document)
+               (parse-document!)
+               ;; (printer/print)
+               (clojure.pprint/pprint)
+               )))
 
   ;; Print a raw schema
 
