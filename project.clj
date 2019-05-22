@@ -36,5 +36,6 @@
       :pretty-print true
       :target :nodejs}
      :source-paths ["src" "test"]}]}
+  :main ^:skip-aot alumbra.printer
   ;; :pedantic? :abort
   )

@@ -1,10 +1,13 @@
 (ns alumbra.printer
+  #?(:clj (:gen-class))
   #?(:cljs (:require-macros [alumbra.printer
                              :refer [with-emit-braces
                                      with-emit-curly-braces
                                      with-next-indentation-level]]))
   #?(:cljs (:import [goog.string StringBuffer]))
-  (:require [clojure.string :as str])
+  #?(:clj (:require [alumbra.parser :as parser]))
+  (:require [#?(:clj clojure.edn :cljs cljs.reader) :as edn]
+            [clojure.string :as str])
   (:refer-clojure :exclude [pr-str print]))
 
 (defn- printer
@@ -594,3 +597,11 @@
   "Pretty print the Alumbra GraphQL `doc`."
   [doc & [opts]]
   (print doc (merge {:indentation 2} opts)))
+
+#?(:clj (defn -main [& args]
+          (let [[input] args]
+            (some-> (slurp input)
+                    (edn/read-string)
+                    (pprint)))))
+
+(comment (main "document.edn"))

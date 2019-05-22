@@ -1,0 +1,30 @@
+#:alumbra{:fragments
+          [#:alumbra{:fragment-name "P8yuan1",
+                     :type-condition #:alumbra{:type-name "Q"},
+                     :selection-set
+                     [#:alumbra{:field-name "LoLt"}
+                      #:alumbra{:field-name "Ngd",
+                                :arguments
+                                [#:alumbra{:argument-name "LZ5EdI",
+                                           :argument-value
+                                           #:alumbra{:value-type
+                                                     :null}}
+                                 #:alumbra{:argument-name "wRdz",
+                                           :argument-value
+                                           #:alumbra{:value-type
+                                                     :object,
+                                                     :object
+                                                     [#:alumbra{:field-name
+                                                                "rTLQao5H",
+                                                                :value
+                                                                #:alumbra{:value-type
+                                                                          :float,
+                                                                          :float
+                                                                          12949.7}}
+                                                      #:alumbra{:field-name
+                                                                "wI9oX",
+                                                                :value
+                                                                #:alumbra{:value-type
+                                                                          :enum,
+                                                                          :enum
+                                                                          "FHC80L0"}}]}}]}]}]}
